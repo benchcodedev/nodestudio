@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nodes Studio – Where Vision Meets Design!</title>
+  <meta name="description" content="Nodes Studio creates architecture for people with a deep focus on daylight, natural materials, and social spaces. Scandinavian modern architecture studio." />
+
+  <!-- Google Fonts: Bricolage Grotesque (Headings) & Inter (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            offwhite: '#F4F3EE',
+            charcoal: '#2B2D28',
+            charcoalDark: '#1E201B',
+            charcoalCard: '#222420',
+            olive: '#6B6D62',
+            oliveDark: '#55584D',
+            oliveCard: '#4E5147',
+            forest: '#3F5B47',
+            cream: '#E9E4D4',
+            creamLight: '#F7F5EE'
+          },
+          fontFamily: {
+            heading: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'],
+            body: ['Inter', 'system-ui', 'sans-serif']
+          },
+          borderRadius: {
+            '2xl': '20px',
+            '3xl': '28px',
+            '4xl': '32px'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-offwhite text-charcoal font-body antialiased selection:bg-forest selection:text-white">
+
+  <!-- =========================================================================
+       1. NAVBAR (Sticky, Translucent, Centered Pills + Wordmark + Mobile Menu)
+       ========================================================================= -->
+  <header id="main-nav" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-4 sm:px-8">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Logo: Nodes Studio Mark + Wordmark -->
+      <a href="#" class="flex items-center gap-2.5 group focus:outline-none" aria-label="Nodes Studio Home">
+        <!-- Nodes mark pill -->
+        <span class="w-8 h-8 rounded-full bg-white/85 backdrop-blur-md flex items-center justify-center shadow-sm border border-white/60 transition-transform duration-300 group-hover:scale-105 p-1.5">
+          <img src="assets/brand/nodes-mark-charcoal.png" alt="Nodes Studio Mark" class="w-full h-full object-contain" />
+        </span>
+        <span class="logo-wordmark font-heading font-extrabold text-base tracking-tight text-white drop-shadow-sm uppercase transition-colors">
+          NODES STUDIO
+        </span>
+      </a>
+
+      <!-- Center-Top: Floating Translucent Pill Menu (Desktop) -->
+      <nav class="hidden md:flex items-center gap-1.5 p-1 rounded-full bg-white/35 backdrop-blur-lg border border-white/40 shadow-sm" aria-label="Primary Navigation">
+        <a href="#hero" class="px-4 py-1.5 rounded-full text-xs font-medium text-charcoal hover:bg-white/80 hover:shadow-xs transition-all duration-200">
+          All items
+        </a>
+        <a href="#good-design" class="px-4 py-1.5 rounded-full text-xs font-medium text-charcoal hover:bg-white/80 hover:shadow-xs transition-all duration-200">
+          Projects
+        </a>
+        <a href="#created-together" class="px-4 py-1.5 rounded-full text-xs font-medium text-charcoal hover:bg-white/80 hover:shadow-xs transition-all duration-200">
+          Our approach
+        </a>
+        <a href="#good-design" class="px-4 py-1.5 rounded-full text-xs font-medium text-charcoal hover:bg-white/80 hover:shadow-xs transition-all duration-200">
+          Good design
+        </a>
+        <a href="#sustainability" class="px-4 py-1.5 rounded-full text-xs font-medium text-charcoal hover:bg-white/80 hover:shadow-xs transition-all duration-200">
+          Sustainability
+        </a>
+      </nav>
+
+      <!-- Right Utility Actions -->
+      <div class="hidden sm:flex items-center gap-2">
+        <!-- Search icon -->
+        <button type="button" class="w-8 h-8 rounded-full bg-white/30 backdrop-blur-md flex items-center justify-center text-charcoal hover:bg-white/80 transition-all border border-white/40" aria-label="Search">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path stroke-linecap="round" d="M21 21l-4.35-4.35"></path>
+          </svg>
+        </button>
+
+        <!-- Catalog / Grid icon -->
+        <button type="button" class="w-8 h-8 rounded-full bg-white/30 backdrop-blur-md flex items-center justify-center text-charcoal hover:bg-white/80 transition-all border border-white/40" aria-label="Catalog view">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+            <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+            <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+            <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+          </svg>
+        </button>
+
+        <!-- Language icon -->
+        <button type="button" class="w-8 h-8 rounded-full bg-white/30 backdrop-blur-md flex items-center justify-center text-charcoal hover:bg-white/80 transition-all border border-white/40 text-xs font-semibold" aria-label="Language selector">
+          EN
+        </button>
+
+        <!-- Contact Pill Button -->
+        <a href="#contact" class="px-4 py-1.5 rounded-full bg-white text-charcoal text-xs font-semibold shadow-sm hover:bg-cream hover:scale-105 transition-all duration-200">
+          Contact
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-toggle" type="button" class="md:hidden w-10 h-10 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-charcoal shadow-sm border border-white/60 focus:outline-none" aria-label="Open navigation menu" aria-expanded="false">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- Mobile Full-screen Overlay Menu -->
+  <div id="mobile-menu-overlay" class="fixed inset-0 z-50 bg-[#1E201B]/95 backdrop-blur-xl flex flex-col justify-between p-6 opacity-0 pointer-events-none transition-all duration-300 md:hidden" aria-hidden="true">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <span class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center p-1.5 text-white">
+          <img src="assets/brand/nodes-mark-white.png" alt="Nodes Studio Mark" class="w-full h-full object-contain" />
+        </span>
+        <span class="font-heading font-bold text-white text-lg tracking-tight uppercase">NODES STUDIO</span>
+      </div>
+      <button id="mobile-menu-close" type="button" class="w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20" aria-label="Close navigation menu">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <nav class="flex flex-col gap-5 my-auto" aria-label="Mobile Navigation">
+      <a href="#hero" class="mobile-nav-link font-heading text-3xl font-semibold text-[#F4F3EE] hover:text-cream transition-colors">About Studio</a>
+      <a href="#good-design" class="mobile-nav-link font-heading text-3xl font-semibold text-[#F4F3EE] hover:text-cream transition-colors">Selected Projects</a>
+      <a href="#created-together" class="mobile-nav-link font-heading text-3xl font-semibold text-[#F4F3EE] hover:text-cream transition-colors">Our Approach</a>
+      <a href="#sustainability" class="mobile-nav-link font-heading text-3xl font-semibold text-[#F4F3EE] hover:text-cream transition-colors">Sustainability & Materials</a>
+      <a href="#contact" class="mobile-nav-link font-heading text-3xl font-semibold text-[#F4F3EE] hover:text-cream transition-colors">Get in Touch</a>
+    </nav>
+
+    <div class="pt-6 border-t border-white/10 flex flex-col gap-2 text-xs text-white/60">
+      <p class="text-white/80 font-medium">📍 Semarang, Indonesia</p>
+      <a href="mailto:nodes.architect@gmail.com" class="text-cream hover:underline">✉️ nodes.architect@gmail.com</a>
+    </div>
+  </div>
+
+
+  <!-- =========================================================================
+       2. HERO SECTION (Full Viewport, Full-bleed Modern Green Facade Image)
+       ========================================================================= -->
+  <section id="hero" class="relative min-h-screen flex flex-col justify-between pt-28 pb-12 px-6 sm:px-12 lg:px-16 overflow-hidden">
+    
+    <!-- Full-bleed background photo with gentle dark gradient for legibility -->
+    <div class="absolute inset-0 z-0 bg-[#353930]">
+      <img
+        src="assets/images/hero-building.jpg"
+        alt="Nodes Studio modern green-clad building with timber balconies and people in the courtyard"
+        class="w-full h-full object-cover object-center filter brightness-[0.92]"
+      />
+      <!-- Ambient overlay gradient matching reference -->
+      <div class="absolute inset-0 bg-gradient-to-r from-black/65 via-black/35 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20"></div>
+    </div>
+
+    <!-- Sky Bird Silhouettes SVG (Top-Left) -->
+    <div class="absolute top-16 left-12 sm:left-24 pointer-events-none opacity-70 z-10 hidden sm:block">
+      <!-- Bird 1 -->
+      <svg class="bird-flying-1 absolute -top-4 left-6 w-5 h-4 text-charcoal/80" viewBox="0 0 24 16" fill="currentColor">
+        <path d="M12 7C9 2 4 1 0 3C5 5 8 8 12 14C16 8 19 5 24 3C20 1 15 2 12 7Z" />
+      </svg>
+      <!-- Bird 2 -->
+      <svg class="bird-flying-2 absolute top-8 left-20 w-4 h-3 text-charcoal/70" viewBox="0 0 24 16" fill="currentColor">
+        <path d="M12 7C9 2 4 1 0 3C5 5 8 8 12 14C16 8 19 5 24 3C20 1 15 2 12 7Z" />
+      </svg>
+      <!-- Bird 3 -->
+      <svg class="bird-flying-3 absolute top-16 left-2 w-3.5 h-2.5 text-charcoal/60" viewBox="0 0 24 16" fill="currentColor">
+        <path d="M12 7C9 2 4 1 0 3C5 5 8 8 12 14C16 8 19 5 24 3C20 1 15 2 12 7Z" />
+      </svg>
+    </div>
+
+    <!-- Hero Main Headline Content -->
+    <div class="max-w-2xl mt-12 sm:mt-16 z-10 reveal-on-scroll">
+      <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-bold text-white tracking-tight leading-[1.04]">
+        Nodes Studio –<br />
+        Where Vision Meets<br />
+        Design!
+      </h1>
+      
+      <p class="mt-4 sm:mt-5 text-white/90 text-sm sm:text-base font-body leading-relaxed max-w-lg">
+        Nodes Studio creates architecture for people with focus on daylight, natural materials, and social spaces. Where vision meets design.
+      </p>
+
+      <!-- Pill Button CTA -->
+      <div class="mt-6">
+        <a href="#contact" class="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-charcoal rounded-full font-body font-semibold text-xs tracking-wide shadow-md hover:bg-cream hover:scale-105 transition-all duration-300">
+          <span>Let's go!</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom Bar of Hero: Left Pill Tags + Right Circular Rotating Badge -->
+    <div class="w-full flex flex-col md:flex-row items-start md:items-end justify-between gap-6 z-10 mt-16 sm:mt-24">
+      
+      <!-- Bottom-Left Glass Pill Tags (Two Rows) -->
+      <div class="flex flex-col gap-2.5 reveal-on-scroll delay-100">
+        <!-- Row 1 -->
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="glass-pill px-3.5 py-1.5 rounded-full text-xs font-semibold text-charcoal flex items-center gap-1.5 cursor-default">
+            <img src="assets/brand/nodes-mark-charcoal.png" alt="" class="w-3.5 h-3.5 object-contain" />
+            Architecture
+          </span>
+          <span class="glass-pill px-3.5 py-1.5 rounded-full text-xs font-semibold text-charcoal cursor-default">
+            Urban Design
+          </span>
+          <span class="glass-pill px-3.5 py-1.5 rounded-full text-xs font-semibold text-charcoal cursor-default flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-forest"></span>
+            Semarang, ID
+          </span>
+        </div>
+        <!-- Row 2 -->
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="glass-pill px-3.5 py-1.5 rounded-full text-xs font-semibold text-charcoal flex items-center gap-1.5 cursor-default">
+            <svg class="w-3.5 h-3.5 text-forest" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+            </svg>
+            Computational & Parametric Design
+          </span>
+          <span class="glass-pill px-3.5 py-1.5 rounded-full text-xs font-semibold text-charcoal cursor-default">
+            Regenerative Living
+          </span>
+        </div>
+      </div>
+
+      <!-- Bottom-Right Rotating Circular Badge (Straddles boundary) -->
+      <div class="self-end rotate-badge-container relative translate-y-8 sm:translate-y-12 z-20 reveal-on-scroll delay-200">
+        <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-white shadow-xl border border-white/60 p-1 flex items-center justify-center relative cursor-pointer group">
+          
+          <!-- Circular Text Path rotating via CSS -->
+          <svg class="w-full h-full rotate-badge-text" viewBox="0 0 140 140">
+            <defs>
+              <path id="badge-circle-path" d="M 70, 70 m -50, 0 a 50,50 0 1,1 100,0 a 50,50 0 1,1 -100,0" />
+            </defs>
+            <text font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" letter-spacing="2.8" fill="#2B2D28">
+              <textPath href="#badge-circle-path" startOffset="0%">
+                • NODES STUDIO • WHERE VISION MEETS DESIGN
+              </textPath>
+            </text>
+          </svg>
+
+          <!-- Center Nodes Studio Mark Emblem -->
+          <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div class="w-8 h-8 rounded-full bg-charcoal/5 flex items-center justify-center p-1.5">
+              <img src="assets/brand/nodes-mark-charcoal.png" alt="Nodes Studio Emblem" class="w-full h-full object-contain" />
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================================
+       3. "GOOD DESIGN" SECTION (White Background, Two-Column Header, 4 Staggered Cards)
+       ========================================================================= -->
+  <section id="good-design" class="bg-white pt-24 pb-28 px-6 sm:px-12 lg:px-16 relative">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Two-Column Section Header -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start mb-16 sm:mb-20">
+        <div class="lg:col-span-7 reveal-on-scroll">
+          <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-charcoal leading-[1.08] tracking-tight">
+            Good design is based on a<br class="hidden sm:inline" />
+            deep understanding of<br class="hidden sm:inline" />
+            the users' need
+          </h2>
+        </div>
+        <div class="lg:col-span-5 reveal-on-scroll delay-100">
+          <p class="font-body text-sm sm:text-base text-charcoal/70 leading-relaxed pt-2">
+            Being an architect is not just about designing a building or a facility; it is also about creating an environment that meets the functional and emotional needs of people who will live and work there.
+          </p>
+        </div>
+      </div>
+
+      <!-- 4 Rounded Cards with Staggered Vertical Offsets (Carousel on Mobile) -->
+      <div class="mobile-carousel lg:grid lg:grid-cols-4 gap-6 items-start pb-6 lg:pb-0">
+        
+        <!-- CARD 1: Dark Card with project image, chip & circular arrow button -->
+        <article class="w-[280px] sm:w-[320px] lg:w-auto bg-[#2B2D28] text-white rounded-3xl p-5 flex flex-col justify-between min-h-[440px] shadow-sm card-hover-lift stagger-card-1 reveal-on-scroll">
+          <div class="mb-4">
+            <h3 class="font-heading text-xl sm:text-2xl font-bold leading-tight text-[#F4F3EE]">
+              Healthcare<br />Centre Hiller&oslash;d
+            </h3>
+          </div>
+
+          <div class="relative rounded-2xl overflow-hidden group">
+            <img
+              src="assets/images/card1_arch.jpg"
+              alt="Healthcare Centre Hillerød - bridge connection and modern architecture"
+              class="w-full h-64 object-cover object-center transition-transform duration-500 group-hover:scale-105"
+            />
+            <!-- Floating circular arrow button -->
+            <a href="#contact" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-white/95 backdrop-blur-md flex flex-col items-center justify-center text-charcoal shadow-lg hover:scale-110 transition-transform duration-300" aria-label="Visit Healthcare Centre Hillerod project">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-charcoal">Visit</span>
+              <span class="text-[9px] font-semibold text-charcoal/70">Project ↗</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- CARD 2: Olive-charcoal Card with studio logo & large bleeding starburst icon -->
+        <article class="w-[280px] sm:w-[320px] lg:w-auto bg-[#4E5147] text-[#F4F3EE] rounded-3xl p-6 relative overflow-hidden flex flex-col justify-between min-h-[380px] shadow-sm card-hover-lift stagger-card-2 reveal-on-scroll delay-100">
+          <!-- Top Left: Studio Logo -->
+          <div class="flex items-center gap-2.5 z-10">
+            <span class="w-6 h-6 rounded-full bg-cream/20 flex items-center justify-center p-1">
+              <img src="assets/brand/nodes-mark-cream.png" alt="Nodes Studio Mark" class="w-full h-full object-contain" />
+            </span>
+            <span class="font-heading font-bold text-sm tracking-tight uppercase text-cream">NODES STUDIO</span>
+          </div>
+
+          <!-- Top Right: Large Cream Organic Starburst Shape Bleeding Out -->
+          <div class="absolute -top-10 -right-10 w-48 h-48 pointer-events-none opacity-90">
+            <img src="assets/icons/starburst-cream.svg" alt="" class="w-full h-full" />
+          </div>
+
+          <!-- Card Body: Architectural Philosophy Quote -->
+          <div class="z-10 mt-16 sm:mt-20">
+            <blockquote class="font-body text-xs sm:text-sm text-[#F4F3EE]/90 leading-relaxed text-center italic">
+              "Because great architecture is not just about building; it's about people and their stories."
+            </blockquote>
+            <div class="w-12 h-1 bg-cream/40 mx-auto rounded-full mt-4"></div>
+          </div>
+        </article>
+
+        <!-- CARD 3: Photo Card with floating rating chip (4.9) & Open House badge -->
+        <article class="w-[280px] sm:w-[320px] lg:w-auto relative rounded-3xl overflow-hidden min-h-[440px] shadow-sm card-hover-lift stagger-card-3 reveal-on-scroll delay-200 group">
+          <img
+            src="assets/images/card3_scandi_clean.jpg"
+            alt="Nodes Studio bright interior space with green acoustic sofa"
+            class="w-full h-full object-cover object-center absolute inset-0 transition-transform duration-500 group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-black/10"></div>
+
+          <!-- Top-Right Floating Circular Chip -->
+          <div class="absolute top-5 right-5 z-10">
+            <div class="w-16 h-16 rounded-full bg-white/95 backdrop-blur-md flex flex-col items-center justify-center text-charcoal shadow-md">
+              <span class="text-[9px] font-bold uppercase tracking-wider">Open</span>
+              <span class="text-[8px] font-semibold text-charcoal/70">House</span>
+            </div>
+          </div>
+
+          <!-- Bottom-Left Floating Rating Card Chip -->
+          <div class="absolute bottom-5 left-5 right-5 z-10 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-white/80">
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="block text-[10px] font-semibold uppercase tracking-wider text-charcoal/60">Average Rating</span>
+                <span class="font-heading text-3xl font-extrabold text-charcoal leading-none">4.9</span>
+              </div>
+              <div class="flex text-amber-500 gap-0.5">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+            </div>
+            <a href="#contact" class="mt-3 block w-full text-center py-2 rounded-full border border-charcoal/30 text-charcoal font-body font-semibold text-xs uppercase tracking-wider hover:bg-charcoal hover:text-white transition-colors">
+              See Case Study
+            </a>
+          </div>
+        </article>
+
+        <!-- CARD 4: Dark Charcoal Card with renovation image & caption -->
+        <article class="w-[280px] sm:w-[320px] lg:w-auto bg-[#222420] text-white rounded-3xl p-5 flex flex-col justify-between min-h-[450px] shadow-sm card-hover-lift stagger-card-4 reveal-on-scroll delay-300">
+          <div class="flex items-center justify-between mb-3">
+            <span class="px-3 py-1 rounded-full border border-white/20 text-[10px] font-semibold uppercase tracking-wider text-white/80">
+              Innovation & Craft
+            </span>
+          </div>
+
+          <div class="rounded-2xl overflow-hidden my-3 group">
+            <img
+              src="assets/images/card4_arch.jpg"
+              alt="Energy renovation of historical architecture"
+              class="w-full h-52 object-cover object-center transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+
+          <p class="font-body text-xs text-white/80 leading-relaxed">
+            Energy renovation of buildings from the '70s provides possibilities for modern living, improved social identity.
+          </p>
+        </article>
+
+      </div>
+
+      <!-- Mobile Carousel Indicator Dots -->
+      <div id="carousel-dots" class="flex lg:hidden items-center justify-center gap-2 mt-6" aria-label="Slide indicators"></div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       4. "CREATED TOGETHER" SECTION (Olive-Gray Background, Left Starburst SVG, Interactive Tabs)
+       ========================================================================= -->
+  <section id="created-together" class="bg-[#5C5E53] text-[#F4F3EE] py-28 px-6 sm:px-12 lg:px-16 relative overflow-hidden">
+    
+    <!-- Massive Organic 8-point Spiky Starburst SVG bleeding off the left edge -->
+    <div class="absolute -left-44 sm:-left-36 top-1/2 -translate-y-1/2 w-[440px] sm:w-[560px] h-[440px] sm:h-[560px] pointer-events-none opacity-40 z-0">
+      <img src="assets/icons/starburst-cream.svg" alt="" class="w-full h-full" />
+    </div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+      
+      <!-- Top Grid: Left Heading vs Right Numbered Items -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-20">
+        
+        <!-- Left Column: Section Title -->
+        <div class="lg:col-span-5 reveal-on-scroll">
+          <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#F4F3EE] leading-[1.08] tracking-tight">
+            Our projects are created<br class="hidden sm:inline" />
+            together with the users<br class="hidden sm:inline" />
+            and customers
+          </h2>
+        </div>
+
+        <!-- Right Column: Three Numbered Items (Dynamic container) -->
+        <div id="tab-items-container" class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-10 reveal-on-scroll delay-100">
+          
+          <!-- Item 1 -->
+          <div class="flex flex-col gap-3 group">
+            <div class="w-9 h-9 rounded-full bg-[#1E201B] border border-white/20 flex items-center justify-center text-xs font-semibold text-[#F4F3EE] shadow-inner transition-transform group-hover:scale-105">
+              1
+            </div>
+            <h3 class="font-heading text-xl lg:text-2xl text-[#F4F3EE] font-semibold leading-tight">
+              Social and environmental sustainability
+            </h3>
+            <p class="font-body text-sm text-[#F4F3EE]/80 leading-relaxed">
+              A holistic methodology and responsible practice with parametric environmental simulation, solar optimization, and circular materials.
+            </p>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="flex flex-col gap-3 group">
+            <div class="w-9 h-9 rounded-full bg-[#1E201B] border border-white/20 flex items-center justify-center text-xs font-semibold text-[#F4F3EE] shadow-inner transition-transform group-hover:scale-105">
+              2
+            </div>
+            <h3 class="font-heading text-xl lg:text-2xl text-[#F4F3EE] font-semibold leading-tight">
+              Computational & Parametric Design
+            </h3>
+            <p class="font-body text-sm text-[#F4F3EE]/80 leading-relaxed">
+              Algorithmic exploration of responsive building envelopes, passive climate performance, and geometrically optimized timber structures.
+            </p>
+          </div>
+
+          <!-- Item 3 (Spans nicely) -->
+          <div class="flex flex-col gap-3 group sm:col-span-2 sm:max-w-md">
+            <div class="w-9 h-9 rounded-full bg-[#1E201B] border border-white/20 flex items-center justify-center text-xs font-semibold text-[#F4F3EE] shadow-inner transition-transform group-hover:scale-105">
+              3
+            </div>
+            <h3 class="font-heading text-xl lg:text-2xl text-[#F4F3EE] font-semibold leading-tight">
+              Regenerative urban design
+            </h3>
+            <p class="font-body text-sm text-[#F4F3EE]/80 leading-relaxed">
+              Context-driven masterplanning and public realm design that harmonizes natural water systems, urban microclimates, and vibrant community life.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Bottom Center: Two Circular Icons, Fine-Print Paragraph, & Tab Switcher -->
+      <div class="flex flex-col items-center text-center max-w-2xl mx-auto pt-6 reveal-on-scroll delay-200">
+        
+        <!-- Two circular decorative badges matching screenshot -->
+        <div class="flex items-center gap-3 mb-6">
+          <span class="w-10 h-10 rounded-full bg-black/40 border border-white/20 flex items-center justify-center text-cream">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L13.8 8.2L20 10L13.8 11.8L12 18L10.2 11.8L4 10L10.2 8.2L12 2Z" />
+            </svg>
+          </span>
+          <span class="w-10 h-10 rounded-full bg-black/40 border border-white/20 flex items-center justify-center text-cream">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="9" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+          </span>
+        </div>
+
+        <!-- Fine-print paragraph -->
+        <p id="tab-footer-note" class="font-body text-xs sm:text-sm text-[#F4F3EE]/75 leading-relaxed mb-8">
+          All our buildings, atmospheres, and urban spaces are created to inspire human interactions, built in close collaboration with communities and clients to cultivate a sustainable tomorrow.
+        </p>
+
+        <!-- Pill-Shaped Tab Switcher (Nature / Social / Materials) -->
+        <div class="p-1.5 rounded-full bg-[#1E201B] border border-white/15 inline-flex items-center shadow-lg" role="tablist" aria-label="Approach Focus Areas">
+          <button
+            type="button"
+            class="tab-switch-btn px-6 py-2 rounded-full text-xs font-semibold bg-[#6B6D62] text-white shadow-sm transition-all duration-300"
+            data-tab="nature"
+            role="tab"
+            aria-selected="true"
+          >
+            Nature
+          </button>
+          <button
+            type="button"
+            class="tab-switch-btn px-6 py-2 rounded-full text-xs font-semibold text-white/70 hover:text-white transition-all duration-300"
+            data-tab="social"
+            role="tab"
+            aria-selected="false"
+          >
+            Social
+          </button>
+          <button
+            type="button"
+            class="tab-switch-btn px-6 py-2 rounded-full text-xs font-semibold text-white/70 hover:text-white transition-all duration-300"
+            data-tab="materials"
+            role="tab"
+            aria-selected="false"
+          >
+            Materials
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       5. "SUSTAINABILITY" SECTION (White Background, Centered Header, 4 Staggered Tall Cards)
+       ========================================================================= -->
+  <section id="sustainability" class="bg-white pt-24 pb-24 px-6 sm:px-12 lg:px-16">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Centered Section Header -->
+      <div class="max-w-3xl mx-auto text-center mb-16 sm:mb-20 reveal-on-scroll">
+        <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-charcoal leading-[1.08] tracking-tight">
+          We integrate knowledge about<br class="hidden sm:inline" />
+          environmental issues, sustainability<br class="hidden sm:inline" />
+          and healthy materials
+        </h2>
+        <p class="font-body text-sm sm:text-base text-charcoal/70 leading-relaxed mt-4 max-w-2xl mx-auto">
+          All our housing, institutional and commercial spaces are developed in dialogue with nature, prioritizing circular timber, low-carbon materials, and spaces that promote community well-being and biodiversity.
+        </p>
+      </div>
+
+      <!-- 4 Tall Project Photos with Staggered Heights (Hover Zoom Effect) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-end mb-16">
+        
+        <!-- CARD 1: Curved vertical timber facade -->
+        <div class="sust-card-1 relative rounded-4xl overflow-hidden shadow-md group card-hover-lift reveal-on-scroll">
+          <img
+            src="assets/images/sust_clean_1.jpg"
+            alt="Curved vertical timber slat architecture"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+
+          <!-- Bottom Floating Pill Labels -->
+          <div class="absolute bottom-5 left-5 right-5 flex flex-col gap-2">
+            <div class="flex items-center gap-2">
+              <span class="glass-pill px-3 py-1 rounded-full text-[11px] font-semibold text-charcoal flex items-center gap-1">
+                <svg class="w-3 h-3 text-forest" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-4H9V10h2V7h2v3h2v2h-2v4z"/>
+                </svg>
+                Healthcare
+              </span>
+              <span class="glass-pill px-3 py-1 rounded-full text-[11px] font-semibold text-charcoal">
+                Wood Life
+              </span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="glass-pill px-3 py-1 rounded-full text-[11px] font-semibold text-charcoal">
+                Sports – Living
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2: Courtyard with timber pergolas (Tallest) -->
+        <div class="sust-card-2 relative rounded-4xl overflow-hidden shadow-md group card-hover-lift reveal-on-scroll delay-100">
+          <img
+            src="assets/images/sust_clean_2.jpg"
+            alt="Courtyard with timber pergolas and people walking"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+
+          <!-- Bottom Floating Pill Label -->
+          <div class="absolute bottom-5 left-5 right-5">
+            <span class="glass-pill px-4 py-1.5 rounded-full text-xs font-semibold text-charcoal inline-block">
+              Nodes Urban Living
+            </span>
+          </div>
+        </div>
+
+        <!-- CARD 3: Bright wood-framed interior with residents -->
+        <div class="sust-card-3 relative rounded-4xl overflow-hidden shadow-md group card-hover-lift reveal-on-scroll delay-200">
+          <img
+            src="assets/images/sust_clean_3.jpg"
+            alt="Warm sunlit Scandinavian wood interior with senior residents"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+
+          <!-- Bottom Floating Badges matching screenshot -->
+          <div class="absolute bottom-5 left-5 right-5 flex flex-col gap-2">
+            <div class="flex items-center gap-2">
+              <span class="glass-pill px-3 py-1 rounded-full text-[11px] font-semibold text-charcoal flex items-center gap-1.5">
+                <img src="assets/brand/nodes-mark-charcoal.png" alt="" class="w-3.5 h-3.5 object-contain" />
+                Nodes Innovation
+              </span>
+            </div>
+            <span class="glass-pill px-4 py-1.5 rounded-full text-xs font-semibold text-charcoal inline-block">
+              Cul de Sac Team 24 Residences
+            </span>
+          </div>
+        </div>
+
+        <!-- CARD 4: Lush public park landscaping with winding benches -->
+        <div class="sust-card-4 relative rounded-4xl overflow-hidden shadow-md group card-hover-lift reveal-on-scroll delay-300">
+          <img
+            src="assets/images/sust_clean_4.jpg"
+            alt="Lush landscaped park with curving concrete benches and greenery"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+
+          <!-- Bottom Floating Pill Label -->
+          <div class="absolute bottom-5 left-5 right-5">
+            <span class="glass-pill px-4 py-1.5 rounded-full text-xs font-semibold text-charcoal inline-block">
+              Public Landscape & Biodiversity
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Fine-print Quote & Follow Us Row -->
+      <div class="pt-8 border-t border-charcoal/10 flex flex-col items-center text-center reveal-on-scroll">
+        <blockquote class="font-body text-xs sm:text-sm text-charcoal/75 italic max-w-xl mb-6">
+          "A condition of our architecture is rooted in a deep understanding of how users create memories and interact within all elements: the space, sunlight and textures."
+        </blockquote>
+
+        <!-- Follow Us Pill Links -->
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <span class="font-body text-xs font-semibold text-charcoal mr-2">Follow us</span>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="px-4 py-1.5 rounded-full border border-charcoal/30 text-charcoal text-xs font-medium hover:bg-charcoal hover:text-white transition-all">
+            + LINKEDIN
+          </a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="px-4 py-1.5 rounded-full border border-charcoal/30 text-charcoal text-xs font-medium hover:bg-charcoal hover:text-white transition-all">
+            + FACEBOOK
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="px-4 py-1.5 rounded-full border border-charcoal/30 text-charcoal text-xs font-medium hover:bg-charcoal hover:text-white transition-all">
+            + INSTAGRAM
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       6. FOOTER & CLOSING CTA (Dark Section, Pill Button, Contact Details, Socials)
+       ========================================================================= -->
+  <footer id="contact" class="bg-[#222420] text-[#F4F3EE] pt-24 pb-12 px-6 sm:px-12 lg:px-16 border-t border-white/10">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Large Closing CTA Header -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-16 border-b border-white/10 reveal-on-scroll">
+        <div class="max-w-2xl">
+          <span class="text-cream text-xs uppercase tracking-widest font-semibold block mb-3">Collaborate With Us</span>
+          <h2 class="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight leading-[1.05]">
+            Let's build something<br />together.
+          </h2>
+        </div>
+        <div>
+          <a href="mailto:nodes.architect@gmail.com" class="inline-flex items-center gap-3 px-8 py-4 bg-cream text-charcoal rounded-full font-body font-bold text-sm shadow-lg hover:bg-white hover:scale-105 transition-all duration-300">
+            <span>Schedule a Consultation</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Studio Details & Navigation Columns -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 py-16 border-b border-white/10 text-sm">
+        
+        <!-- Column 1: Studio Identity -->
+        <div class="lg:col-span-4 flex flex-col gap-4">
+          <div class="flex items-center gap-2.5">
+            <span class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center p-1.5 text-cream">
+              <img src="assets/brand/nodes-mark-cream.png" alt="Nodes Studio Mark" class="w-full h-full object-contain" />
+            </span>
+            <span class="font-heading font-extrabold text-lg tracking-tight uppercase text-white">NODES STUDIO</span>
+          </div>
+          <p class="text-white/70 text-xs sm:text-sm leading-relaxed max-w-xs font-body">
+            Nodes Studio is a design practice based in Semarang, specializing in architecture, urban design, and computational & parametric design.
+          </p>
+        </div>
+
+        <!-- Column 2: Semarang Studio Office -->
+        <div class="lg:col-span-3 flex flex-col gap-2">
+          <h4 class="font-heading font-semibold text-white uppercase tracking-wider text-xs mb-1">Studio Office</h4>
+          <p class="text-white/70 text-xs leading-relaxed">
+            Semarang, Central Java<br />
+            Indonesia
+          </p>
+          <a href="mailto:nodes.architect@gmail.com" class="text-cream text-xs hover:underline mt-1">nodes.architect@gmail.com</a>
+        </div>
+
+        <!-- Column 3: Architecture Disciplines -->
+        <div class="lg:col-span-2 flex flex-col gap-2">
+          <h4 class="font-heading font-semibold text-white uppercase tracking-wider text-xs mb-1">Expertise</h4>
+          <ul class="text-xs text-white/70 space-y-1.5 font-body">
+            <li><a href="#good-design" class="hover:text-cream transition-colors">Architecture</a></li>
+            <li><a href="#good-design" class="hover:text-cream transition-colors">Urban Design</a></li>
+            <li><a href="#created-together" class="hover:text-cream transition-colors">Computational & Parametric</a></li>
+            <li><a href="#sustainability" class="hover:text-cream transition-colors">Environmental Simulation</a></li>
+            <li><a href="#sustainability" class="hover:text-cream transition-colors">Public Landscapes</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Newsletter Subscription -->
+        <div class="lg:col-span-3 flex flex-col gap-3">
+          <h4 class="font-heading font-semibold text-white uppercase tracking-wider text-xs mb-1">Stay Inspired</h4>
+          <p class="text-xs text-white/70 leading-relaxed">
+            Subscribe to our quarterly architectural dispatch exploring Scandinavian sustainable design.
+          </p>
+          <form class="flex items-center gap-1.5 mt-1" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Nodes Studio dispatch!');">
+            <input
+              id="newsletter-email"
+              type="email"
+              placeholder="Your email address"
+              required
+              class="w-full px-4 py-2 rounded-full bg-white/10 border border-white/20 text-xs text-white placeholder-white/40 focus:bg-white/20 focus:outline-none"
+            />
+            <button type="submit" class="px-4 py-2 rounded-full bg-white text-charcoal font-semibold text-xs hover:bg-cream transition-colors shrink-0">
+              Join
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar: Copyright, BENCHCODE™ Attribution & Back-to-Top -->
+      <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/50">
+        <p>&copy; 2026 Nodes Studio. All rights reserved.</p>
+        
+        <!-- BENCHCODE™ Trademark Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/10 text-white/70 hover:text-white hover:border-white/25 transition-all">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#3F5B47]"></span>
+          <span class="text-[11px] font-medium tracking-wide">Crafted by <strong class="text-cream font-heading font-bold tracking-wider">BENCHCODE&trade;</strong></span>
+        </div>
+
+        <div class="flex items-center gap-6">
+          <a href="#hero" class="flex items-center gap-1 text-white/70 hover:text-white transition-colors" aria-label="Back to top">
+            <span>Back to top</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Main JavaScript File -->
+  <script src="js/main.js"></script>
+</body>
+</html>

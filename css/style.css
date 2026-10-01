@@ -1,0 +1,276 @@
+/* ==========================================================================
+   Nodes Studio - Scandinavian Architecture Studio Stylesheet
+   Palette:
+     Off-white: #F4F3EE
+     White: #FFFFFF
+     Charcoal: #2B2D28
+     Olive-gray: #6B6D62
+     Forest green: #3F5B47
+     Cream: #E9E4D4
+   ========================================================================== */
+
+:root {
+  --color-offwhite: #F4F3EE;
+  --color-white: #FFFFFF;
+  --color-charcoal: #2B2D28;
+  --color-charcoal-dark: #1E201B;
+  --color-olive: #6B6D62;
+  --color-olive-card: #4E5147;
+  --color-forest: #3F5B47;
+  --color-cream: #E9E4D4;
+  --color-cream-light: #F7F5EE;
+  --color-glass-border: rgba(255, 255, 255, 0.35);
+  --color-glass-bg: rgba(255, 255, 255, 0.45);
+
+  --font-heading: 'Bricolage Grotesque', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --radius-card: 28px;
+  --radius-card-lg: 32px;
+  --radius-pill: 9999px;
+}
+
+/* Base setup */
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-offwhite);
+  color: var(--color-charcoal);
+  font-family: var(--font-body);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  overflow-x: hidden;
+  min-height: 100vh;
+  background-color: var(--color-offwhite);
+}
+
+section {
+  scroll-margin-top: 92px;
+}
+
+/* Nav scrolled dynamic styling */
+#main-nav.nav-scrolled {
+  background: rgba(244, 243, 238, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(43, 45, 40, 0.08);
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+#main-nav.nav-scrolled .logo-wordmark {
+  color: var(--color-charcoal);
+  text-shadow: none;
+}
+
+/* Typography */
+.font-heading {
+  font-family: var(--font-heading);
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* Glassmorphism Pill elements */
+.glass-pill {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-pill:hover {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+.glass-pill-dark {
+  background: rgba(30, 32, 27, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--color-offwhite);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-pill-dark:hover {
+  background: rgba(30, 32, 27, 0.85);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Rotating Circular Badge */
+@keyframes spinBadge {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate-badge-text {
+  animation: spinBadge 22s linear infinite;
+  transform-origin: center center;
+}
+
+.rotate-badge-container:hover .rotate-badge-text {
+  animation-play-state: paused;
+}
+
+/* Tiny Bird Silhouette Float Animation */
+@keyframes birdDrift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(8px, -4px) scale(1.02);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+.bird-flying-1 {
+  animation: birdDrift 8s ease-in-out infinite;
+}
+
+.bird-flying-2 {
+  animation: birdDrift 11s ease-in-out infinite reverse;
+}
+
+.bird-flying-3 {
+  animation: birdDrift 9s ease-in-out infinite 2s;
+}
+
+/* Staggered Vertical Offsets for Good Design Section */
+@media (min-width: 1024px) {
+  .stagger-card-1 {
+    transform: translateY(0px);
+  }
+  .stagger-card-2 {
+    transform: translateY(64px);
+  }
+  .stagger-card-3 {
+    transform: translateY(28px);
+  }
+  .stagger-card-4 {
+    transform: translateY(12px);
+  }
+
+  /* Staggered heights & alignment in Sustainability Section */
+  .sust-card-1 {
+    height: 480px;
+    margin-top: 50px;
+  }
+  .sust-card-2 {
+    height: 560px;
+    margin-top: 0px;
+  }
+  .sust-card-3 {
+    height: 500px;
+    margin-top: 35px;
+  }
+  .sust-card-4 {
+    height: 530px;
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .sust-card-1,
+  .sust-card-2,
+  .sust-card-3,
+  .sust-card-4 {
+    height: 420px;
+  }
+}
+
+/* Card hover dynamics */
+.card-hover-lift {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 35px -10px rgba(43, 45, 40, 0.12);
+}
+
+/* Horizontal Scroll Snap for Mobile */
+.mobile-carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+}
+
+.mobile-carousel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.mobile-carousel > * {
+  scroll-snap-align: center;
+  flex-shrink: 0;
+}
+
+/* Fade up on scroll */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger transition delay helpers */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+
+/* Accessible outline states */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--color-forest);
+  outline-offset: 3px;
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  .rotate-badge-text,
+  .bird-flying-1,
+  .bird-flying-2,
+  .bird-flying-3 {
+    animation: none !important;
+  }
+
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .card-hover-lift:hover {
+    transform: none !important;
+  }
+}
